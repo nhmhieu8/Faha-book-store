@@ -1,10 +1,10 @@
-package dev.learning.librarymanagementsystem;
+package dev.learning.fahabookstore;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LibraryManagementSystemApplicationTests {
+class FahaBookStoreApplicationTests {
 
 	@Test
 	void contextLoads() {
