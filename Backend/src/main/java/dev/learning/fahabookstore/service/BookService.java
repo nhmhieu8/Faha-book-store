@@ -1,15 +1,16 @@
 package dev.learning.fahabookstore.service;
 
+import dev.learning.fahabookstore.dto.BookDto;
 import dev.learning.fahabookstore.entity.Book;
 
 import java.util.List;
 
 public interface BookService {
-    Book save(Book theBook);
+    BookDto save(Book theBook);
 
-    List<Book> findAll();
+    List<BookDto> findAll();
 
-    Book findById(int theId);
+    BookDto findById(int id);
 
-    void delete(Book theBook);
+    void deleteById(int id);
 }

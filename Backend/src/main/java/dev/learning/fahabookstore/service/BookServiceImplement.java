@@ -1,5 +1,6 @@
 package dev.learning.fahabookstore.service;
 
+import dev.learning.fahabookstore.dto.BookDto;
 import dev.learning.fahabookstore.entity.Book;
 import dev.learning.fahabookstore.exception.ResourceNotFoundException;
 import dev.learning.fahabookstore.repository.BookRepository;
@@ -14,39 +15,41 @@ import java.util.Optional;
 @Service
 public class BookServiceImplement implements BookService {
     private BookRepository bookRepository;
+    private ModelMapper modelMapper;
 
     @Autowired
-    public BookServiceImplement(BookRepository bookRepository) {
+    public BookServiceImplement(BookRepository bookRepository, ModelMapper modelMapper) {
         this.bookRepository = bookRepository;
+        this.modelMapper = modelMapper;
     }
 
     @Override
     @Transactional
-    public Book save(Book theBook) {
-        return bookRepository.save(theBook);
+    public BookDto save(Book theBook) {
+        Book dbBook = bookRepository.save(theBook);
+        return modelMapper.map(dbBook, BookDto.class);
     }
 
     @Override
-    public List<Book> findAll() {
-        return bookRepository.findAll();
+    public List<BookDto> findAll() {
+        List<Book> books = bookRepository.findAll();
+        return books.stream()
+                    .map(book -> modelMapper.map(book, BookDto.class))
+                    .toList();
     }
 
     @Override
-    public Book findById(int theId) {
-        Optional<Book> result = bookRepository.findById(theId);
-        Book book = null;
-        if (result.isPresent()) {
-           book  = result.get();
-        }
-        else {
-            throw new ResourceNotFoundException("Cannot find book with id: " + theId);
-        }
-        return book;
+    public BookDto findById(int id) {
+        Optional<Book> result = bookRepository.findById(id);
+        if (result.isPresent()) return modelMapper.map(result.get(), BookDto.class);
+        throw new ResourceNotFoundException("Cannot find book with id: " + id);
     }
 
     @Override
     @Transactional
-    public void delete(Book theBook) {
-        bookRepository.delete(theBook);
+    public void deleteById(int id) {
+        Optional<Book> result = bookRepository.findById(id);
+        if (result.isPresent()) bookRepository.deleteById(id);
+        else throw new ResourceNotFoundException("Cannot find book with id: " + id);
     }
 }
