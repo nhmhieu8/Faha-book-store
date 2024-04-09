@@ -8,20 +8,18 @@ import lombok.Setter;
 
 import java.util.Set;
 
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Entity
-@Table(name = "publisher")
-public class Publisher {
+@Table(name = "language")
+public class Language {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "address")
-    private String address;
-    @OneToMany(mappedBy = "publisher")
+    @OneToMany(mappedBy = "language")
     private Set<Book> books;
 }

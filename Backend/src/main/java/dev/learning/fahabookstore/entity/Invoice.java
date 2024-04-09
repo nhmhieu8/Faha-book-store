@@ -24,6 +24,6 @@ public class Invoice {
     @JoinColumn(name="user_id", nullable=false)
     private User user;
     @OneToMany(mappedBy = "invoice")
-    private Set<BookInvoice> bookInvoices;
+    private Set<ProductInvoice> productInvoices;
 
 }

@@ -13,15 +13,13 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "publisher")
-public class Publisher {
+@Table(name = "ink_color")
+public class InkColor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "name", nullable = false)
+    @Column(name = "ink_color_name", nullable = false)
     private String name;
-    @Column(name = "address")
-    private String address;
-    @OneToMany(mappedBy = "publisher")
-    private Set<Book> books;
+    @OneToMany(mappedBy = "inkColor")
+    private Set<Stationery> stationeries;
 }
