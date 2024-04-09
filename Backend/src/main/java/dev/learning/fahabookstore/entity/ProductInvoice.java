@@ -6,22 +6,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Set;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "publisher")
-public class Publisher {
+@Table(name = "product_invoice")
+public class ProductInvoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "name", nullable = false)
-    private String name;
-    @Column(name = "address")
-    private String address;
-    @OneToMany(mappedBy = "publisher")
-    private Set<Book> books;
+    @Column(name = "quantity", nullable = false)
+    private Integer quantity;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
+    @ManyToOne
+    @JoinColumn(name = "invoice_id")
+    private Invoice invoice;
 }
+

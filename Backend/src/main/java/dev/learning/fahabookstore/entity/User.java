@@ -18,17 +18,17 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "username")
+    @Column(name = "username", nullable = false)
     private String username;
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "phone_number")
+    @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
     @Column(name = "email")
     private String email;
-    @Column(name = "address")
+    @Column(name = "address", nullable = false)
     private String address;
     @OneToMany(mappedBy = "user")
     private Set<Invoice> invoices;
