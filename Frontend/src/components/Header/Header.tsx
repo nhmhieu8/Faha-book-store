@@ -1,10 +1,8 @@
-import { Box, Container, Flex, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex, Text, VStack } from "@chakra-ui/react";
 import { Magento } from "@styled-icons/boxicons-logos";
 import { Bell, Cart, UserCircle } from "@styled-icons/boxicons-regular";
-
-const iconConfig = {
-   size: "3rem",
-};
+import MainContainer from "../MainContainer/MainContainer";
+import { iconConfig } from "./config";
 
 const rightNavbar = [
    {
@@ -23,11 +21,11 @@ const rightNavbar = [
 
 const Header = () => {
    return (
-      <Box bgColor={"#fff"}>
-         <Container
-            maxW={"120rem"}
-            py={"1rem"}
-         >
+      <Box
+         bgColor="#fff"
+         py="1rem"
+      >
+         <MainContainer>
             <Flex
                alignItems={"center"}
                justifyContent={"space-between"}
@@ -49,7 +47,7 @@ const Header = () => {
                   ))}
                </Flex>
             </Flex>
-         </Container>
+         </MainContainer>
       </Box>
    );
 };

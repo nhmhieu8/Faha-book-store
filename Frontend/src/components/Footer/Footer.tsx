@@ -1,14 +1,14 @@
-import { Box, Flex, Container, Text, Heading } from "@chakra-ui/react";
-import { footerBrand, footerOptions } from "./data";
+import { Box, Flex, Text, Heading } from "@chakra-ui/react";
+import { footerBrand, footerOptions } from "./config";
+import MainContainer from "../MainContainer/MainContainer";
 
 const Footer = () => {
    return (
-      <Box bgColor={"#fff"}>
-         <Container
-            maxW={"120rem"}
-            py={"1rem"}
-            bgColor={"#fff"}
-         >
+      <Box
+         bgColor="#fff"
+         py="5rem"
+      >
+         <MainContainer>
             <Flex
                justifyContent={"space-between"}
                alignItems={"stretch"}
@@ -66,7 +66,7 @@ const Footer = () => {
                   ))}
                </Flex>
             </Flex>
-         </Container>
+         </MainContainer>
       </Box>
    );
 };
