@@ -1,5 +1,14 @@
+import { Header, Footer } from "./components";
+import { Home } from "./pages";
+
 function App() {
-   return <>Library Management System</>;
+   return (
+      <>
+         <Header />
+         <Home />
+         <Footer />
+      </>
+   );
 }
 
 export default App;
