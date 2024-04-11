@@ -2,7 +2,7 @@ import MainContainer from "../../components/MainContainer/MainContainer";
 import ProductList from "./ProductList";
 import { homeData } from "./mocks/data";
 
-const Home = () => {
+const HomePage = () => {
    return (
       <MainContainer>
          <>
@@ -17,4 +17,4 @@ const Home = () => {
    );
 };
 
-export default Home;
+export default HomePage;

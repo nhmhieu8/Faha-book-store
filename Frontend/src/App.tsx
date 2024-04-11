@@ -1,14 +1,8 @@
-import { Header, Footer } from "./components";
-import { Home } from "./pages";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router/AppRoutes";
 
 function App() {
-   return (
-      <>
-         <Header />
-         <Home />
-         <Footer />
-      </>
-   );
+   return <RouterProvider router={router} />;
 }
 
 export default App;
